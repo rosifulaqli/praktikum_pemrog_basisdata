@@ -1,0 +1,45 @@
+MariaDB [(none)]> show databases;
+
+MariaDB [(none)]> CREATE DATABASE db_perpustakaan1;
+Query OK, 1 row affected (0.04 sec)
+MariaDB [db_perpustakaan1]> CREATE TABLE tb_peminjam(
+    -> id_pinjam char(10) not null primary key,
+    -> id_buku char(10) not null,
+    -> jumlah_buku char(10) not null
+    -> );
+Query OK, 0 rows affected (0.29 sec)
+MariaDB [db_perpustakaan1]> CREATE TABLE tb_pinjam(
+    -> id_anggota char(10) not null primary key,
+    -> id_pinjam char(10) not null,
+    -> tanggal_pinjam date not null,
+    -> total_pinjam char(10) not null
+    -> );
+Query OK, 0 rows affected (0.41 sec)
+MariaDB [db_perpustakaan1]> CREATE TABLE anggota(
+    -> id_anggota char(10) not null,
+    -> nama_anggota varchar(20) not null,
+    -> alamat varchar(20) not null,
+    -> no_telp char(15) not null
+    -> );
+Query OK, 0 rows affected (0.26 sec)
+
+MariaDB [db_perpustakaan1]> CREATE TABLE buku(
+    -> id_buku char(10) not null primary key,
+    -> judul_buku varchar(20) not null,
+    -> pengarang_buku varchar(20) not null,
+    -> penerbit_buku varchar(20) not null,
+    -> tahun_buku char(10) not null,
+    -> stok_buku char(15) not null
+    -> );
+Query OK, 0 rows affected (0.39 sec)
+MariaDB [db_perpustakaan1]> show tables;
+MariaDB [db_perpustakaan1]> desc anggota;
+MariaDB [db_perpustakaan1]> desc buku;
+MariaDB [db_perpustakaan1]> desc tb_peminjam;
+MariaDB [db_perpustakaan1]> desc tb_pinjam;
+
+MariaDB [db_perpustakaan1]> insert into anggota values('4321','rosipul','malang','085853453712');
+Query OK, 1 row affected (0.09 sec)
+MariaDB [db_perpustakaan1]> select * from anggota;
+MariaDB [db_perpustakaan1]> select * from anggota where nama_anggota like 'r%';
+
